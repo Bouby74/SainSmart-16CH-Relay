@@ -1,0 +1,26 @@
+16 relay communication network protocol
+agreement：TCP/IP
+IP: 192.168.1.4
+port number：3000 
+code for the control of relay:
+1channel on： 58 01 12 00 00 00 01 6C     1 channel off： 58 01 11 00 00 00 01 6B
+2channel on： 58 01 12 00 00 00 02 6D     2channel off： 58 01 11 00 00 00 02 6C
+3channel on： 58 01 12 00 00 00 03 6E     3channel off： 58 01 11 00 00 00 03 6D
+4channel on： 58 01 12 00 00 00 04 6F     4channel off： 58 01 11 00 00 00 04 6E
+5channel on： 58 01 12 00 00 00 05 70     5channel off： 58 01 11 00 00 00 05 6F
+6channel on： 58 01 12 00 00 00 06 71     6channel off： 58 01 11 00 00 00 06 70
+7channel on： 58 01 12 00 00 00 07 72     7channel off： 58 01 11 00 00 00 07 71
+8channel on： 58 01 12 00 00 00 08 73     8channel off： 58 01 11 00 00 00 08 72
+9channel on： 58 01 12 00 00 00 09 74     9channel off： 58 01 11 00 00 00 09 73
+10channel on： 58 01 12 00 00 00 0A 75    10channel off： 58 01 11 00 00 00 0A 74
+11channel on： 58 01 12 00 00 00 0B 76    11channel off： 58 01 11 00 00 00 0B 75
+12channel on： 58 01 12 00 00 00 0C 77    12channel off： 58 01 11 00 00 00 0C 76
+13channel on： 58 01 12 00 00 00 0D 78    13channel off： 58 01 11 00 00 00 0D 77
+14channel on： 58 01 12 00 00 00 0E 79    14channel off： 58 01 11 00 00 00 0E 78
+15channel on： 58 01 12 00 00 00 0F 7A    15channel off： 58 01 11 00 00 00 0F 79
+16channel on： 58 01 12 00 00 00 10 7B    16channel off： 58 01 11 00 00 00 10 7A
+
+1-16channel on： 58 01 13 00 00 FF FF 77    1-16channel off：58 01 13 00 00 00 00 7B
+
+Query the current 16 relay state：58 01 10 00 00 00 00 69
+The next crew to respond to relay status：   28 01 00 00 00 XX XX HH   (XX XX 16 bit, each bit represents one relay state, "1" indicates on, "0" indicates OFF; HH is the sum of all previous data together)
